@@ -1,5 +1,3 @@
 ﻿using XadrezConsole.Tabuleiro;
 
-Posicao p = new Posicao(3, 4);
-
-Console.WriteLine("Posição: " + p);
+TabuleiroJogo tab = new TabuleiroJogo(4, 4);
