@@ -7,7 +7,7 @@ public class Tela
     {
         for (int i = 0; i < tab.Linhas; i++)
         {
-            Console.Write(i + " ");
+            Console.Write((8 - i) + " ");
             for (int j = 0; j < tab.Colunas; j++)
             {
                 if (tab.Peca(i, j) == null)
@@ -16,11 +16,27 @@ public class Tela
                 }
                 else
                 {
-                    Console.Write($" {tab.Peca(i, j)} ");
+                    ImprimirPeca(tab.Peca(i, j));
                 }
             }
             Console.WriteLine();
         }
-        Console.WriteLine("+  a  b  c  d  e  f  g  h ");
+        Console.WriteLine("+  a  b  c  d  e  f  g  h");
+    }
+
+    public static void ImprimirPeca(Peca p)
+    {
+
+        if (p.Cor == Cor.Preta)
+        {
+            ConsoleColor aux = Console.ForegroundColor;
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write($" {p} ");
+            Console.ForegroundColor = aux;
+            return;
+        }
+        Console.Write($" {p} ");
+
     }
 }

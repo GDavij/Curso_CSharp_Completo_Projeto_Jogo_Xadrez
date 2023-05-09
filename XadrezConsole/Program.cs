@@ -2,6 +2,16 @@
 using XadrezConsole.Tabuleiro;
 using XadrezConsole.Xadrez;
 
-PosicaoXadrez posicaoXadrez = new PosicaoXadrez('c', 7);
-Console.WriteLine("Posição Xadrez: " + posicaoXadrez);
-Console.WriteLine("Posição: " + posicaoXadrez.ToPosicao());
+
+TabuleiroJogo tab = new TabuleiroJogo(8, 8);
+
+tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
+tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
+
+
+tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(3, 5));
+tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(6, 6));
+tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(6, 5));
+
+Tela.ImprimirTabuleiro(tab);
