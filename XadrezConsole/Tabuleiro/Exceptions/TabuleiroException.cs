@@ -1,0 +1,7 @@
+using System;
+namespace XadrezConsole.Tabuleiro.Exceptions;
+
+public class TabuleiroException : Exception
+{
+    public TabuleiroException(string msg) : base(msg) { }
+}
