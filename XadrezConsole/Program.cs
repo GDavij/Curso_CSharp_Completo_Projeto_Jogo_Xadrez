@@ -1,3 +1,5 @@
-﻿using XadrezConsole.Tabuleiro;
+﻿using XadrezConsole;
+using XadrezConsole.Tabuleiro;
 
-TabuleiroJogo tab = new TabuleiroJogo(4, 4);
+TabuleiroJogo tab = new TabuleiroJogo(8, 8);
+Tela.ImprimirTabuleiro(tab);
