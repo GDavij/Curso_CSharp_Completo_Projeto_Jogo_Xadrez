@@ -14,4 +14,9 @@ public class Peca
         Cor = cor;
         QtdMovimentos = 0;
     }
+
+    public void IncrementarQuantidadeDeMovimentos()
+    {
+        QtdMovimentos++;
+    }
 }
