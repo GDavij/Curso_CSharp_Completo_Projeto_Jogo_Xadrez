@@ -14,6 +14,10 @@ public class Tela
 
         Console.WriteLine("Turno: " + partida.Turno);
         Console.WriteLine("Aguradando Jogada: " + partida.JogadorAtual);
+        if (partida.Xeque)
+        {
+            Console.WriteLine("Você está em Xeque");
+        }
     }
 
     public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)

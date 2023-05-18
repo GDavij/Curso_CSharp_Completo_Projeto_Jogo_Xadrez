@@ -41,4 +41,9 @@ public abstract class Peca
     {
         QtdMovimentos++;
     }
+
+    public void DecrementarQuantidadeDeMovimentos()
+    {
+        QtdMovimentos--;
+    }
 }
