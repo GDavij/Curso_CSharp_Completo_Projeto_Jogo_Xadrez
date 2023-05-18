@@ -11,13 +11,22 @@ public class Tela
 
         ImprimirPecasCapturadas(partida);
         Console.WriteLine();
-
         Console.WriteLine("Turno: " + partida.Turno);
-        Console.WriteLine("Aguradando Jogada: " + partida.JogadorAtual);
-        if (partida.Xeque)
+
+        if (!partida.Terminada)
         {
-            Console.WriteLine("Você está em Xeque");
+            Console.WriteLine("Aguradando Jogada: " + partida.JogadorAtual);
+            if (partida.Xeque)
+            {
+                Console.WriteLine("Você está em Xeque");
+            }
         }
+        else
+        {
+            Console.WriteLine("XEQUEMATE!");
+            Console.WriteLine($"Vencedor: {partida.JogadorAtual}");
+        }
+
     }
 
     public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)

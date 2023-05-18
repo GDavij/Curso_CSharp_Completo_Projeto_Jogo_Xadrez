@@ -36,6 +36,8 @@ try
             Console.WriteLine("Pressione ENTER para continuar Jogo");
             Console.ReadLine();
         }
+        Console.Clear();
+        Tela.ImprimirPartida(partidaDeXadrez);
     }
 }
 catch (Exception e)
