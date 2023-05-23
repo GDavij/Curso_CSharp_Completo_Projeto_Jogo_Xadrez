@@ -3,8 +3,11 @@ namespace XadrezConsole.Xadrez;
 
 public class Peao : Peca
 {
-
-    public Peao(TabuleiroJogo tab, Cor cor) : base(tab, cor) { }
+    private PartidaDeXadrez Partida;
+    public Peao(TabuleiroJogo tab, Cor cor, PartidaDeXadrez partida) : base(tab, cor)
+    {
+        Partida = partida;
+    }
 
     public override string ToString()
     {
@@ -51,6 +54,18 @@ public class Peao : Peca
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
+
+            // #Jogada Especial - En Passant
+            if (Posicao.Linha == 3)
+            {
+                Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                if (TabuleiroJogo.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && TabuleiroJogo.Peca(esquerda) == Partida.VulneravelEnPassant)
+                    mat[esquerda.Linha - 1, esquerda.Coluna] = true;
+
+                Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                if (TabuleiroJogo.PosicaoValida(direita) && ExisteInimigo(direita) && TabuleiroJogo.Peca(direita) == Partida.VulneravelEnPassant)
+                    mat[direita.Linha - 1, direita.Coluna] = true;
+            }
         }
         else
         {
@@ -77,6 +92,18 @@ public class Peao : Peca
             if (TabuleiroJogo.PosicaoValida(pos) && ExisteInimigo(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
+            }
+
+            // #Jogada Especial - En Passant
+            if (Posicao.Linha == 4)
+            {
+                Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+                if (TabuleiroJogo.PosicaoValida(esquerda) && ExisteInimigo(esquerda) && TabuleiroJogo.Peca(esquerda) == Partida.VulneravelEnPassant)
+                    mat[esquerda.Linha + 1, esquerda.Coluna] = true;
+
+                Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+                if (TabuleiroJogo.PosicaoValida(direita) && ExisteInimigo(direita) && TabuleiroJogo.Peca(direita) == Partida.VulneravelEnPassant)
+                    mat[direita.Linha + 1, direita.Coluna] = true;
             }
         }
 
